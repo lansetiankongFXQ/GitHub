@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+# encoding: utf-8
+import re
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
+import sys
+import os
+sys.path.append(os.getcwd())
+from multiprocessing import Process, Lock
+from taodata.spiders.cues.wb_topic_bang_spider import WbTopicBangSpider
+from taodata.spiders.cues.wb_base_profile_spider import WbBaseProfileSpider
+from taodata.spiders.cues.wb_topic_bang_user_spider import WbTopicBangUserSpider
+from taodata.spiders.cues.wb_hot_word_spider import WbHotWordSpider
+
+
+def crawl(lock, num):
+    lock.acquire()
+    print('pid'+str(os.getpid())+'***crawl'+str(num)+'->start')
+    lock.release()
+    process = CrawlerProcess(get_project_settings())
+    process.crawl(WbTopicBangSpider)
+    process.crawl(WbBaseProfileSpider)
+    process.crawl(WbTopicBangUserSpider)
+    process.crawl(WbHotWordSpider)
+    process.start()
+
+
+if __name__ == "__main__":
+    lock = Lock()  # 这个一定要定义为全局
+    for num in range(1):
+        Process(target=crawl, args=(lock, num)).start()

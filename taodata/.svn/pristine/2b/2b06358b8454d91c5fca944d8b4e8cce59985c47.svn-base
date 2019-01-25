@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+
+# Define here the models for your scraped items
+#
+# See documentation in:
+# https://doc.scrapy.org/en/latest/topics/items.html
+
+import scrapy
+from scrapy import Field
+
+
+# 微博用户基本资料
+class WbBaseProfileItem(scrapy.Item):
+    _id = Field()  # ID
+    id = Field()
+    screen_name = Field()
+    profile_image_url = Field()
+    profile_url = Field()
+    statuses_count = Field()
+    verified = Field()
+    verified_type = Field()
+    verified_reason = Field()
+    description = Field()
+    gender = Field()
+    mbtype = Field()
+    urank = Field()
+    mbrank = Field()
+    followers_count = Field()
+    follow_count = Field()
+
+
+# 执门微博
+class WbBaseBlogItem(scrapy.Item):
+    _id = Field()
+    id = Field()
+    created_at = Field()
+    text = Field()
+    source = Field()
+    reposts_count = Field()
+    comments_count = Field()
+    attitudes_count = Field()
+    user = Field()
+    blog_type = Field()
+
+
+class WbTopicBangItem(scrapy.Item):
+    _id = Field()
+    title_sub = Field()
+    desc1 = Field()
+    desc2 = Field()
+    crawl_time = Field()
+
+
+class WbHotWordItem(scrapy.Item):
+    _id = Field()
+    item_id = Field()
+    desc = Field()
+    desc_extr = Field()
+    crawl_time = Field()
+
+
+
+
+
+
+
+
+

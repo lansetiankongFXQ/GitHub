@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b77bd5de-f9e8-47f9-a377-18c61b6d43fb" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/run.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/cn_cnr_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/cn_gmw_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/cn_haiwainet_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/cn_thepaper_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_bjnews_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_cankaoxiaoxi_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_cctv_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_china_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_huanqiu_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_jcrb_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_legaldaily_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_stdaily_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_xinhuanet_news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taodata/spiders/article/com_ynet_news.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/taodata.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/taodata.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/taodata/middlewares.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/taodata/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/spiders/article/article_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/taodata/spiders/article/article_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/spiders/article/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/taodata/spiders/article/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/spiders/article/news_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/taodata/spiders/article/news_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/spiders/article/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/taodata/spiders/article/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taodata/spiders/cues" beforeDir="true" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_repost_cn_spider.coverage" NAME="proxy_weibo_repost_cn_spider Coverage Results" MODIFIED="1538664757104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_relationships_spider.coverage" NAME="fudan_weibo_relationships_spider Coverage Results" MODIFIED="1539389577395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$wanfang_spider.coverage" NAME="wanfang_spider Coverage Results" MODIFIED="1543806525024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/wanfangdata" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_user_spider.coverage" NAME="fudan_weibo_user_spider Coverage Results" MODIFIED="1539929792060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_attitude_cn_spider.coverage" NAME="proxy_weibo_attitude_cn_spider Coverage Results" MODIFIED="1538665042351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$biquge_html.coverage" NAME="biquge_html Coverage Results" MODIFIED="1540448306851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/books" />
+    <SUITE FILE_PATH="coverage/taodata$Twisted_Trial_in_cn_com_sina_news_py.coverage" NAME="Twisted Trial in cn_com_sina_news.py Coverage Results" MODIFIED="1543018853051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/article" />
+    <SUITE FILE_PATH="coverage/taodata$push_crawl_request.coverage" NAME="push_crawl_request Coverage Results" MODIFIED="1539387689256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$redis_init_relationships.coverage" NAME="redis_init_relationships Coverage Results" MODIFIED="1538746348354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_relationships_spider.coverage" NAME="weibo_relationships_spider Coverage Results" MODIFIED="1538746192224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$pipelines.coverage" NAME="pipelines Coverage Results" MODIFIED="1543803531471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/article" />
+    <SUITE FILE_PATH="coverage/taodata$account_relogin.coverage" NAME="account_relogin Coverage Results" MODIFIED="1538743759069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_comment_cn_spider.coverage" NAME="proxy_weibo_comment_cn_spider Coverage Results" MODIFIED="1538663288340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$status_reset.coverage" NAME="status_reset Coverage Results" MODIFIED="1540002864156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/service" />
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_attitude_cn_spider_multi.coverage" NAME="proxy_weibo_attitude_cn_spider_multi Coverage Results" MODIFIED="1539399504662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_jobs.coverage" NAME="fudan_jobs Coverage Results" MODIFIED="1539928965188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$redis_init_profile.coverage" NAME="redis_init_profile Coverage Results" MODIFIED="1539493633837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_history_spider.coverage" NAME="weibo_history_spider Coverage Results" MODIFIED="1541475054898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/weibo" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_mobile_spider.coverage" NAME="fudan_weibo_mobile_spider Coverage Results" MODIFIED="1541061552340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$login_prod.coverage" NAME="login_prod Coverage Results" MODIFIED="1540079958039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/account/weibo_cn" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_user_spider.coverage" NAME="weibo_user_spider Coverage Results" MODIFIED="1541406993522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/weibo" />
+    <SUITE FILE_PATH="coverage/taodata$fetch_proxy_ip__1_.coverage" NAME="fetch_proxy_ip (1) Coverage Results" MODIFIED="1538559455028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$count_idataapi.coverage" NAME="count_idataapi Coverage Results" MODIFIED="1541745711786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata" />
+    <SUITE FILE_PATH="coverage/taodata$get_user_id_spider.coverage" NAME="get_user_id_spider Coverage Results" MODIFIED="1539340649591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/temp" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_spider.coverage" NAME="fudan_weibo_spider Coverage Results" MODIFIED="1539956713685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_startup.coverage" NAME="fudan_startup Coverage Results" MODIFIED="1539514644287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_startup__1_.coverage" NAME="fudan_startup (1) Coverage Results" MODIFIED="1539400499113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$realtime_weibo.coverage" NAME="realtime_weibo Coverage Results" MODIFIED="1541496486235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$biquge_init.coverage" NAME="biquge_init Coverage Results" MODIFIED="1540447631279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/books" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_social_spider.coverage" NAME="weibo_social_spider Coverage Results" MODIFIED="1541488408943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/weibo" />
+    <SUITE FILE_PATH="coverage/taodata$utils.coverage" NAME="utils Coverage Results" MODIFIED="1541051391942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$export.coverage" NAME="export Coverage Results" MODIFIED="1539916750919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/service" />
+    <SUITE FILE_PATH="coverage/taodata$Twisted_Trial_for_cn_com_sina_news_test1.coverage" NAME="Twisted Trial for cn_com_sina_news.test1 Coverage Results" MODIFIED="1543018817528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/article" />
+    <SUITE FILE_PATH="coverage/taodata$redis_init_cn.coverage" NAME="redis_init_cn Coverage Results" MODIFIED="1541039171017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$biquge_spider.coverage" NAME="biquge_spider Coverage Results" MODIFIED="1540519839810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/books" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_user_spider__1_.coverage" NAME="fudan_weibo_user_spider (1) Coverage Results" MODIFIED="1539409709507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_realtime_spider.coverage" NAME="weibo_realtime_spider Coverage Results" MODIFIED="1541407077159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/weibo" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_cn_spider.coverage" NAME="weibo_cn_spider Coverage Results" MODIFIED="1538463276326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$login.coverage" NAME="login Coverage Results" MODIFIED="1538265380673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/account/weibo_cn" />
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_cn_spider.coverage" NAME="proxy_weibo_cn_spider Coverage Results" MODIFIED="1538662205458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$cn_com_sina_news.coverage" NAME="cn_com_sina_news Coverage Results" MODIFIED="1543020675538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/article" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_profile_spider.coverage" NAME="fudan_weibo_profile_spider Coverage Results" MODIFIED="1539332430743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$realtime_setting_init.coverage" NAME="realtime_setting_init Coverage Results" MODIFIED="1541491625033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$startup_all.coverage" NAME="startup_all Coverage Results" MODIFIED="1541040819801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_profile_spider_multi.coverage" NAME="proxy_weibo_profile_spider_multi Coverage Results" MODIFIED="1538799243458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_service.coverage" NAME="fudan_service Coverage Results" MODIFIED="1539566403680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/service" />
+    <SUITE FILE_PATH="coverage/taodata$run2.coverage" NAME="run2 Coverage Results" MODIFIED="1548228276823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$Twisted_Trial_in_test_spider_py.coverage" NAME="Twisted Trial in test_spider.py Coverage Results" MODIFIED="1538539872911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$push_proxy_ip.coverage" NAME="push_proxy_ip Coverage Results" MODIFIED="1540021491380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$run.coverage" NAME="run Coverage Results" MODIFIED="1548378466547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata" />
+    <SUITE FILE_PATH="coverage/taodata$article_spider.coverage" NAME="article_spider Coverage Results" MODIFIED="1543807337926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/article" />
+    <SUITE FILE_PATH="coverage/taodata$redis_init_cn_m.coverage" NAME="redis_init_cn_m Coverage Results" MODIFIED="1541382253809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$quartz_test.coverage" NAME="quartz_test Coverage Results" MODIFIED="1543813720456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/article" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_profile_spider.coverage" NAME="weibo_profile_spider Coverage Results" MODIFIED="1538990633345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$proxy_weibo_profile_spider.coverage" NAME="proxy_weibo_profile_spider Coverage Results" MODIFIED="1539057432121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_weibo_relationships_mobile_spider.coverage" NAME="fudan_weibo_relationships_mobile_spider Coverage Results" MODIFIED="1540869718391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+    <SUITE FILE_PATH="coverage/taodata$pop_proxy_ip.coverage" NAME="pop_proxy_ip Coverage Results" MODIFIED="1538557069095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$fetch_proxy_ip.coverage" NAME="fetch_proxy_ip Coverage Results" MODIFIED="1538553691357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/schedule" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_repost_spider.coverage" NAME="weibo_repost_spider Coverage Results" MODIFIED="1542335552130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/weibo" />
+    <SUITE FILE_PATH="coverage/taodata$fudan_jobs_init.coverage" NAME="fudan_jobs_init Coverage Results" MODIFIED="1540392213312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$weibo_profile_spider2.coverage" NAME="weibo_profile_spider2 Coverage Results" MODIFIED="1538559480487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders" />
+    <SUITE FILE_PATH="coverage/taodata$status_check.coverage" NAME="status_check Coverage Results" MODIFIED="1540286435890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/jobs" />
+    <SUITE FILE_PATH="coverage/taodata$taodata_weibo_user_spider.coverage" NAME="taodata_weibo_user_spider Coverage Results" MODIFIED="1539409605697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taodata/spiders/fudan" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="taodata" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_cnr_news.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="63" column="106" lean-forward="true" selection-start-line="63" selection-start-column="106" selection-end-line="63" selection-end-column="106" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>parse_article</find>
+      <find>parse_china_article</find>
+      <find>parse_china</find>
+      <find>article:crawl:news:requests</find>
+      <find>article</find>
+      <find>requests</find>
+      <find>article:crawl:news</find>
+      <find>news-position</find>
+      <find>header</find>
+      <find>set</find>
+      <find>dataList</find>
+      <find>nav_left</find>
+      <find>logo</find>
+      <find>新京报</find>
+      <find>参考消息</find>
+      <find>cues:crawl:errback</find>
+      <find>page_subject</find>
+      <find>original_source</find>
+      <find>response.text</find>
+      <find>crawl:news:error_page</find>
+      <find>海外网</find>
+      <find>print</find>
+      <find>环球</find>
+      <find>中国科技</find>
+      <find>海外</find>
+      <find>breadcrumb</find>
+      <find>央视网</find>
+      <find>法制网</find>
+      <find>正义网</find>
+      <find>光明网</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>https://weibo.cn</replace>
+      <replace>None</replace>
+      <replace>self.find</replace>
+      <replace>taodata.</replace>
+      <replace>taodata</replace>
+      <replace>r.zadd</replace>
+      <replace>item[0].</replace>
+      <replace>新京报</replace>
+      <replace>参考消息</replace>
+      <replace>海外网</replace>
+      <replace>环球</replace>
+      <replace>中国科技</replace>
+      <replace>海外</replace>
+      <replace>央视网</replace>
+      <replace>法制网</replace>
+      <replace>正义网</replace>
+      <replace>光明网</replace>
+      <replace>央广网</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/taodata/jobs/fudan_jobs_init.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/realtime_setting_init.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/realtime_weibo.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/taodata_util.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/weibo_realtime_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/weibo_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/weibo_realtime_init.py" />
+        <option value="$PROJECT_DIR$/taodata/pipelines.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/weibo_realtime.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/startup.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/weibo_history_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/weibo_user_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/weibo_social_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/count_idataapi.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/weibo_init.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/weibo.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/weibo_job_init.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/weibo/weibo_repost_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/weibo_job.py" />
+        <option value="$PROJECT_DIR$/taodata/jobs/fudan_jobs.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_sina.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/cn_com_sina_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/wanfangdata/pipelines.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/wanfangdata/items.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/wanfangdata/wanfang_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/article_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/quartz_test.py" />
+        <option value="$PROJECT_DIR$/taodata/middlewares.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/cn_com_people_news.py" />
+        <option value="$PROJECT_DIR$/taodata/settings.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/news_spider.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/items.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/article_util.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_cankaoxiaoxi_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_china_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_ynet_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_huanqiu_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_bjnews_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/cn_thepaper_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/run2.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_xinhuanet_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/pipelines.py" />
+        <option value="$PROJECT_DIR$/taodata/run.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/cn_haiwainet_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_cctv_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_stdaily_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_legaldaily_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_jcrb_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/com_gmw_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/cn_gmw_news.py" />
+        <option value="$PROJECT_DIR$/taodata/spiders/article/cn_cnr_news.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="474" />
+    <option name="y" value="123" />
+    <option name="width" value="1400" />
+    <option name="height" value="928" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyTest" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/taodata/spiders/weibo" />
+      <recent name="$PROJECT_DIR$/taodata/spiders/taodata" />
+      <recent name="$PROJECT_DIR$/taodata/jobs" />
+      <recent name="$PROJECT_DIR$/taodata/spiders/books" />
+      <recent name="$PROJECT_DIR$/taodata/service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\taodata\taodata\spiders\article" />
+      <recent name="D:\taodata\taodata\spiders" />
+      <recent name="D:\taodata\taodata" />
+      <recent name="$PROJECT_DIR$/taodata/spiders/wanfangdata" />
+      <recent name="$PROJECT_DIR$/taodata/spiders/article" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.run">
+    <configuration name="article_spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="taodata" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/taodata/spiders/article" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taodata/spiders/article/article_spider.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="quartz_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="taodata" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/taodata/spiders/article" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taodata/spiders/article/quartz_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="taodata" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/taodata" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taodata/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="taodata" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/taodata/spiders" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taodata/spiders/run2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wanfang_spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="taodata" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/taodata/spiders/wanfangdata" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taodata/spiders/wanfangdata/wanfang_spider.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.article_spider" />
+      <item itemvalue="Python.quartz_test" />
+      <item itemvalue="Python.wanfang_spider" />
+      <item itemvalue="Python.run" />
+      <item itemvalue="Python.run2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.run" />
+        <item itemvalue="Python.run2" />
+        <item itemvalue="Python.quartz_test" />
+        <item itemvalue="Python.article_spider" />
+        <item itemvalue="Python.wanfang_spider" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\taodata" />
+          <option name="myCopyRoot" value="D:\taodata" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\taodata" />
+          <option name="myCopyRoot" value="D:\taodata" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b77bd5de-f9e8-47f9-a377-18c61b6d43fb" name="Default" comment="" />
+      <created>1538226783587</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538226783587</updated>
+      <workItem from="1547002603908" duration="46393000" />
+      <workItem from="1547454059606" duration="8784000" />
+      <workItem from="1547528704220" duration="161387000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Twisted_Trial_in_test_spider_py - 2018.10.03 at 12h 07m 45s.xml">
+      <configuration name="Twisted Trial in test_spider.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_test_spider_py - 2018.10.03 at 12h 09m 00s.xml">
+      <configuration name="Twisted Trial in test_spider.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_test_spider_py - 2018.10.03 at 12h 09m 29s.xml">
+      <configuration name="Twisted Trial in test_spider.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_test_spider_py - 2018.10.03 at 12h 09m 39s.xml">
+      <configuration name="Twisted Trial in test_spider.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_test_spider_py - 2018.10.03 at 12h 11m 13s.xml">
+      <configuration name="Twisted Trial in test_spider.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_for_cn_com_sina_news_test1 - 2018.11.24 at 08h 15m 22s.xml">
+      <configuration name="Twisted Trial for cn_com_sina_news.test1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_cn_com_sina_news_py - 2018.11.24 at 08h 19m 55s.xml">
+      <configuration name="Twisted Trial in cn_com_sina_news.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_for_cn_com_sina_news_test1 - 2018.11.24 at 08h 20m 18s.xml">
+      <configuration name="Twisted Trial for cn_com_sina_news.test1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_cn_com_sina_news_py - 2018.11.24 at 08h 20m 43s.xml">
+      <configuration name="Twisted Trial in cn_com_sina_news.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Twisted_Trial_in_cn_com_sina_news_py - 2018.11.24 at 08h 20m 53s.xml">
+      <configuration name="Twisted Trial in cn_com_sina_news.py" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="216564000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="474" y="123" width="1400" height="928" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49895614" visible="true" weight="0.25820896" />
+      <window_info id="Structure" order="1" sideWeight="0.50104386" side_tool="true" weight="0.2589552" />
+      <window_info id="Favorites" order="2" sideWeight="0.50104386" side_tool="true" weight="0.27835822" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32712767" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.2562814" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4977612" visible="true" weight="0.3982412" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49930555" weight="0.2564935" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5022388" side_tool="true" weight="0.3982412" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32914573" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32900432" />
+      <window_info anchor="right" id="JuliaSciView" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32985073" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49895614" visible="true" weight="0.25820896" />
+      <window_info id="Structure" order="1" sideWeight="0.50104386" side_tool="true" weight="0.2589552" />
+      <window_info id="Favorites" order="2" sideWeight="0.50104386" side_tool="true" weight="0.27835822" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32712767" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.2562814" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4977612" visible="true" weight="0.3982412" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49930555" weight="0.2564935" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5022388" side_tool="true" weight="0.3982412" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32914573" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32900432" />
+      <window_info anchor="right" id="JuliaSciView" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32985073" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/taodata/account/weibo_cn/login_prod.py</url>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/taodata/spiders/article/com_stdaily_news.py</url>
+          <line>157</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>temp.xpath('string(./div/span)')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>temp.xpath('string(./div)')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>link</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>link.xpath('./@data-url')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>category.xpath('./div[contains(@class,&quot;list-all all-title&quot;)]/b/text()')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>category.xpath('./div')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>__py_debug_temp_var_1898243867[0].attrib</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>category.xpath('./div/b/text()')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>category.xpath('./div/b')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>req_id</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/taodata/account/weibo_cn/login_prod.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/quartz_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3633">
+          <caret line="238" column="9" selection-start-line="238" selection-start-column="4" selection-end-line="238" selection-end-column="9" />
+          <folding>
+            <element signature="e#40#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/cues/cues_util.py" />
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/wanfangdata/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/wanfangdata/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/wanfangdata/wanfang_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2035">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/twisted/internet/_win32stdio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/importlib/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="354" selection-start-line="354" selection-end-line="354" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/http/request/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="298" column="4" selection-start-line="298" selection-start-column="4" selection-end-line="298" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/settings_local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/settings_hz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/traceback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2983">
+          <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_com_people_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_cankaoxiaoxi_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="258" column="71" selection-start-line="258" selection-start-column="71" selection-end-line="258" selection-end-column="71" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_china_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="217" column="71" selection-start-line="217" selection-start-column="71" selection-end-line="217" selection-end-column="71" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_bjnews_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="140" column="24" lean-forward="true" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/utils/defer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/spidermiddlewares/offsite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/spidermiddlewares/referer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="338" selection-start-line="338" selection-end-line="338" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/spidermiddlewares/urllength.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/scrapy/spidermiddlewares/depth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_thepaper_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_ynet_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2869">
+          <caret line="166" column="24" lean-forward="true" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_huanqiu_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_com_sina_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="38" selection-start-line="38" selection-end-line="45" selection-end-column="14" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="98" column="23" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/run2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_xinhuanet_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="340" selection-start-line="340" selection-end-line="367" selection-end-column="15" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="319" selection-start-line="319" selection-end-line="319" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="56" lean-forward="true" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="90" column="17" lean-forward="true" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
+          <folding>
+            <element signature="e#193#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_cctv_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="275" lean-forward="true" selection-start-line="275" selection-end-line="275" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#153#166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/article_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding>
+            <element signature="e#40#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_stdaily_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="159" selection-start-line="159" selection-end-line="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_legaldaily_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/twisted/internet/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="671" selection-start-line="671" selection-end-line="671" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python64/Lib/site-packages/twisted/internet/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="901" selection-start-line="901" selection-end-line="901" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/com_jcrb_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="125" column="45" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_haiwainet_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="307" selection-start-line="307" selection-end-line="311" selection-end-column="39" />
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/news_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_gmw_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="126" column="44" selection-start-line="126" selection-start-column="44" selection-end-line="126" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taodata/spiders/article/cn_cnr_news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="63" column="106" lean-forward="true" selection-start-line="63" selection-start-column="106" selection-end-line="63" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

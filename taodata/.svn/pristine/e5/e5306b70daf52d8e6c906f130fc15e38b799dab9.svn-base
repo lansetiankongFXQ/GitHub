@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+import sys
+import os
+sys.path.append(os.getcwd())
+import time
+import pymongo
+from taodata.settings import LOCAL_MONGO_PORT, LOCAL_MONGO_HOST, DB_NAME
+from pymongo.errors import DuplicateKeyError
+from taodata.account.weibo_cn.login_prod import WeiboLogin
+import datetime
+
+client = pymongo.MongoClient(LOCAL_MONGO_HOST, LOCAL_MONGO_PORT)
+account_collection = client[DB_NAME]['account']
+
+
+def job():
+    while True:
+        print('pid' + str(os.getpid()) + '***comment***' + datetime.datetime.now().strftime(
+            '%H:%M:%S') + '-> relogin job start')
+        for account in account_collection.find({'status': 'error'}).batch_size(5):
+            username = account['_id']
+            password = account['password']
+            print('=' * 10 + username + '=' * 10)
+            try:
+                cookie_str = WeiboLogin(username, password).run()
+            except Exception as e:
+                print(e)
+                print('获取cookie失败')
+                continue
+
+            if cookie_str and len(cookie_str) > 0:
+                print('获取cookie成功')
+            else:
+                print('获取cookie失败')
+                continue
+            try:
+                account_collection.insert(
+                    {"_id": username, "password": password, "cookie": cookie_str, "status": "success"})
+            except DuplicateKeyError as e:
+                account_collection.find_one_and_update({'_id': username},
+                                                       {'$set': {'cookie': cookie_str, "status": "success"}})
+
+        time.sleep(60)
+
+
+if __name__ == "__main__":
+    job()

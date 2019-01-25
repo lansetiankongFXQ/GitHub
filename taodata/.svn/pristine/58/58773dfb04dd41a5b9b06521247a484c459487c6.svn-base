@@ -1,0 +1,32 @@
+import pymongo
+import json
+import sys
+import os
+sys.path.append(os.getcwd())
+from pymongo.errors import DuplicateKeyError
+from taodata.service.fudan_items import FudanWeiboUserItem
+import redis
+from taodata.spiders.fudan import fudan_util
+
+r = redis.Redis(host='10.86.11.160', port=6379, password='123456')
+
+
+def sync_profile():
+    client = pymongo.MongoClient('10.86.11.160', 27017)
+    db = client['taodata']
+    profile = db['CuesWbBaseProfile']
+    for record in profile.find({}).batch_size(100):
+        if r.sismember('cues:crawl:dupe:wb_base_profile',id):
+            pass
+        else:
+            r.sadd('cues:crawl:dupe:wb_base_profile', record['id'])
+
+
+if __name__ == "__main__":
+    sync_profile()
+
+
+
+
+
+

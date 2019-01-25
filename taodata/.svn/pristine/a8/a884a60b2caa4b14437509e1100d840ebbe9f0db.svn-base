@@ -1,0 +1,101 @@
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+import pymongo
+from pymongo.errors import DuplicateKeyError
+import sys
+import os
+sys.path.append(os.getcwd())
+from taodata.spiders.cues.items import WbBaseProfileItem, WbBaseBlogItem, WbTopicBangItem, WbHotWordItem
+from taodata.settings import LOCAL_MONGO_HOST, LOCAL_MONGO_PORT, DB_NAME
+import redis
+from taodata.settings import LOCAL_REDIS_HOST, LOCAL_REDIS_PORT, LOCAL_REDIS_PASSWORD
+import json
+import requests
+import datetime
+
+
+class CuesRedisPipeline(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+
+    def __init__(self):
+        pass
+
+    def process_item(self, item, spider):
+        """ 判断item的类型，并作相应的处理，再入数据库 """
+        if isinstance(item, WbBaseProfileItem):
+            item_dict = dict(item)
+            redis_key = 'taodata:crawl:data:%s' %(item_dict['job_no'])
+            self.r.lpush(redis_key, json.dumps(item_dict))
+
+        return item
+
+
+class CuesApiPipeline(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+
+    def __init__(self):
+        pass
+
+    def process_item(self, item, spider):
+        """ 判断item的类型，并作相应的处理，再入数据库 """
+        if isinstance(item, WbBaseProfileItem):
+            url = 'http://192.168.0.120:18088/api/weibomonitor?appkey=5dkg44'
+            headers = {'content-type': 'application/json'}
+            request_data = {}
+            data = []
+            item_dict = dict(item)
+            item_dict['id'] = item_dict['_id']
+            del item_dict['_id']
+            data.append(item_dict)
+            request_data['data'] = data
+            r = requests.post(url, data=json.dumps(request_data), headers=headers)
+            json1 = r.json()
+            if 'code' in json1:
+                code = json1['code']
+                if code != '200':
+                    self.r.sadd('taodata:crawl:weibo:error_api', item_dict['weibo_url'])
+        return item
+
+
+class CuesMongoDBPipeline(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+    client = pymongo.MongoClient(LOCAL_MONGO_HOST, LOCAL_MONGO_PORT)
+    db = client[DB_NAME]
+
+    def __init__(self):
+        prefix = datetime.datetime.now().strftime('%Y%m%d')
+        self.CuesWbBaseProfile = self.db["CuesWbBaseProfile"]
+        self.CuesWbBaseBlog = self.db["CuesWbBaseBlog_" + prefix]
+        self.CuesWbTopicBang = self.db["CuesWbTopicBang"]
+        self.CuesWbHotWord = self.db["CuesWbHotWord"]
+
+    def process_item(self, item, spider):
+        prefix = datetime.datetime.now().strftime('%Y%m%d')
+        self.CuesWbBaseBlog = self.db["CuesWbBaseBlog_" + prefix]
+
+        if isinstance(item, WbBaseProfileItem):
+            self.insert_item(self.CuesWbBaseProfile, item)
+        elif isinstance(item, WbBaseBlogItem):
+            self.insert_item(self.CuesWbBaseBlog, item)
+        elif isinstance(item, WbTopicBangItem):
+            self.insert_item(self.CuesWbTopicBang, item)
+        elif isinstance(item, WbHotWordItem):
+            self.insert_item(self.CuesWbHotWord, item)
+        return item
+
+    @staticmethod
+    def insert_item(collection, item):
+        try:
+            collection.insert(dict(item))
+        except DuplicateKeyError:
+            """
+            说明有重复数据
+            """
+            print('重复数据 -->' + item['_id'])
+            pass
+
+

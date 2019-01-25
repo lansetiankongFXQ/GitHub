@@ -1,0 +1,115 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+import redis
+import sys
+import os
+sys.path.append(os.getcwd())
+from taodata.settings import LOCAL_REDIS_HOST, LOCAL_REDIS_PORT, LOCAL_REDIS_PASSWORD
+import schedule
+import time
+from urllib import request
+import json
+
+
+r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+
+
+def job1():
+    # 政府
+    file = open('./taodata/data/ids/政府_id.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:政府', url)
+        line = file.readline()
+    file.close()
+
+
+def job2():
+    # 媒体
+    file = open('./taodata/data/ids/媒体_id.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:媒体', url)
+        line = file.readline()
+    file.close()
+
+
+def job3():
+    # 媒体与法律大V
+    file = open('./taodata/data/ids/媒体与法律大V_id.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:媒体与法律大V', url)
+        line = file.readline()
+    file.close()
+
+
+def job4():
+    # 网络媒体大V
+    file = open('./taodata/data/ids/网络媒体大V_id.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:网络媒体大V', url)
+        line = file.readline()
+    file.close()
+
+
+def job5():
+    # 网信办
+    file = open('./taodata/data/ids/网信办_id.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:网信办', url)
+        line = file.readline()
+    file.close()
+
+
+def job6():
+    # 网信办
+    file = open('./taodata/data/ids/1w-10w.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:idataapi', url)
+        line = file.readline()
+    file.close()
+
+    file = open('./taodata/data/ids/10w-50w.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:idataapi', url)
+        line = file.readline()
+    file.close()
+
+    file = open('./taodata/data/ids/up_50w.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:idataapi', url)
+        line = file.readline()
+    file.close()
+
+    file = open('./taodata/data/ids/完整用户A_id.txt')
+    line = file.readline()
+    while line:
+        url = line.strip('\n')
+        r.sadd('cues:crawl:wb:ids:taodata', url)
+        line = file.readline()
+    file.close()
+
+
+if __name__ == "__main__":
+    job1()
+    job2()
+    job3()
+    job4()
+    job5()
+    job6()
+

@@ -1,0 +1,157 @@
+#!/usr/bin/env python
+# encoding: utf-8
+import re
+from scrapy.crawler import CrawlerProcess
+from scrapy.selector import Selector
+from scrapy.http import Request
+from scrapy.utils.project import get_project_settings
+from scrapy_redis.spiders import RedisSpider
+import sys
+import os
+sys.path.append(os.getcwd())
+from taodata.settings import LOCAL_REDIS_HOST, LOCAL_REDIS_PORT, LOCAL_REDIS_PASSWORD
+import redis
+
+from twisted.internet.error import TimeoutError, TCPTimedOutError, ConnectionRefusedError
+from twisted.web._newclient import ResponseFailed, ResponseNeverReceived
+from scrapy.spidermiddlewares.httperror import HttpError
+from scrapy.utils.response import response_status_message  # 获取错误代码信息
+import importlib
+from taodata.spiders.cues import cues_util
+import scrapy.item
+import time
+import json
+import datetime
+
+
+class WbUserBaseBlogDailySpider(RedisSpider):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+    name = "cues:crawl:wb_user_base_blog_daily"
+    redis_key = "cues:crawl:wb_user_base_blog_daily:start_urls"
+
+    custom_settings = {
+        'CONCURRENT_REQUESTS': 1,
+        "DOWNLOAD_DELAY": 0.1,
+        'DOWNLOAD_TIMEOUT': 30,
+        "SCHEDULER": "scrapy_redis.scheduler.Scheduler",
+        "DUPEFILTER_CLASS": "scrapy_redis.dupefilter.RFPDupeFilter",
+        "SCHEDULER_PERSIST": True,
+        'DEFAULT_REQUEST_HEADERS': {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+        },
+        'DOWNLOADER_MIDDLEWARES': {
+            'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 300,
+            'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': None,
+            'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+            'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+            'taodata.middlewares.RetryMiddleware': 550,
+            # 'taodata.middlewares.CookieMiddleware': 300,
+            'taodata.middlewares.RedirectMiddleware': 200,
+            # 'taodata.middlewares.IPPoolMiddleware': 125,
+            'taodata.middlewares.ProxyMiddleware': 125,
+            # 'taodata.middlewares.NoProxyMiddleware': 125,
+        },
+        'ITEM_PIPELINES': {
+            'taodata.spiders.cues.pipelines.CuesMongoDBPipeline': 999
+        },
+        'RETRY_TIMES': 50,
+        'RETRY_ENABLED': True
+    }
+
+    # 默认初始解析函数
+    def parse(self, response):
+        # 用户ID
+        uid = cues_util.parse_query(response.url, 'value')
+        # containerid
+        container_id = cues_util.parse_query(response.url, 'containerid')
+
+        if uid:
+            if container_id:
+                # 解析微博数据
+                text1 = response.text
+                try:
+                    json1 = json.loads(text1)
+                    if 'ok' in json1 and json1['ok'] != 1:
+                        self.r.sadd('cues:crawl:wb:error', response.url+'-->无数据')
+                    else:
+                        if 'data' in json1:
+                            if 'cards' in json1['data']:
+                                cards = json1['data']['cards']
+                                for card in cards:
+                                    if 'mblog' in card:
+                                        mblog = card['mblog']
+                                        item = cues_util.build_wb_base_blog_item(mblog, 'user_blog')
+                                        # 只采集两天内的微博
+                                        created_at = item['created_at']
+                                        if len(created_at) >= 10:
+                                            created_at = created_at[0:10]
+                                            t1 = datetime.datetime.strptime(created_at, '%Y-%m-%d')
+                                            t2 = datetime.datetime.now() - datetime.timedelta(days=2)
+                                            if t1 < t2:
+                                                continue
+                                        else:
+                                            continue
+
+                                        # 判断是否存在
+                                        if self.r.sismember('cues:crawl:dupe:wb_base_blog:'+created_at, mblog['id']):
+                                            pass
+                                        else:
+                                            if 'user' in mblog:
+                                                user = mblog['user']
+                                                if self.r.sismember('cues:crawl:dupe:wb_base_profile', user['id']):
+                                                    pass
+                                                else:
+                                                    base_profile = cues_util.build_wb_base_profile_item(user)
+                                                    yield base_profile
+                                                    self.r.sadd('cues:crawl:dupe:wb_base_profile', user['id'])
+                                                    print('采集新用户-->' + str(user['id']))
+                                                # 用户微博记数
+                                                self.r.hincrby('cues:crawl:statistics:user_blog',user['id'],1)
+                                            yield item
+                                            self.r.sadd('cues:crawl:dupe:wb_base_blog:'+created_at, mblog['id'])
+                                            print('采集新微博-->' + str(mblog['id']))
+                except:
+                    self.r.sadd('cues:crawl:wb:error', response.url+'-->解析异常')
+            else:
+                # 解析得到 container id
+                index_page_data = parse_user_index(response)
+                if index_page_data:
+                    container_id = index_page_data['weibo_container']
+                    # 缓存container id
+                    self.r.hset('cues:crawl:wb:weibo_container', uid, container_id)
+                    page_url = response.url + '&containerid=' + container_id
+                    request = Request(page_url, dont_filter=True, priority=20)
+                    yield request
+
+
+# 解析用户index页面数据
+def parse_user_index(response):
+    text1 = response.text
+    try:
+        json1 = json.loads(text1)
+    except:
+        return None
+
+    if 'ok' in json1 and json1['ok'] == 0:
+        return None
+
+    data = {}
+
+    if 'data' in json1 and 'userInfo' in json1['data']:
+        userinfo = json1['data']['userInfo']
+        data['user'] = userinfo
+
+    if json1 and ('data' in json1) and ('tabsInfo' in json1['data']):
+        tabs = json1['data']['tabsInfo']['tabs']
+        for tab in tabs:
+            if tab['tab_type'] == 'profile':
+                data['profile_container'] = tab['containerid']
+            if tab['tab_type'] == 'weibo':
+                data['weibo_container'] = tab['containerid']
+    return data
+
+
+if __name__ == "__main__":
+    process = CrawlerProcess(get_project_settings())
+    process.crawl(WbUserBaseBlogDailySpider)
+    process.start()

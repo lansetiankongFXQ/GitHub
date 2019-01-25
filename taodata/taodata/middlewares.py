@@ -1,0 +1,325 @@
+# -*- coding: utf-8 -*-
+
+# Define here the models for your spider middleware
+#
+# See documentation in:
+# https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+
+from scrapy import signals
+import random
+import base64
+import pymongo
+import sys
+import os
+sys.path.append(os.getcwd())
+from taodata.settings import LOCAL_MONGO_PORT, LOCAL_MONGO_HOST, DB_NAME
+from taodata.settings import LOCAL_REDIS_HOST, LOCAL_REDIS_PORT, LOCAL_REDIS_PASSWORD
+import redis
+import time
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
+#from taodata.spiders.cues import cues_util
+from urllib.parse import quote
+import datetime
+
+
+class TaodataSpiderMiddleware(object):
+    # Not all methods need to be defined. If a method is not defined,
+    # scrapy acts as if the spider middleware does not modify the
+    # passed objects.
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # This method is used by Scrapy to create your spiders.
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        return s
+
+    def process_spider_input(self, response, spider):
+        # Called for each response that goes through the spider
+        # middleware and into the spider.
+
+        # Should return None or raise an exception.
+        return None
+
+    def process_spider_output(self, response, result, spider):
+        # Called with the results returned from the Spider, after
+        # it has processed the response.
+
+        # Must return an iterable of Request, dict or Item objects.
+        for i in result:
+            yield i
+
+    def process_spider_exception(self, response, exception, spider):
+        # Called when a spider or process_spider_input() method
+        # (from other spider middleware) raises an exception.
+
+        # Should return either None or an iterable of Response, dict
+        # or Item objects.
+        pass
+
+    def process_start_requests(self, start_requests, spider):
+        # Called with the start requests of the spider, and works
+        # similarly to the process_spider_output() method, except
+        # that it doesn’t have a response associated.
+
+        # Must return only requests (not items).
+        for r in start_requests:
+            yield r
+
+    def spider_opened(self, spider):
+        spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class TaodataDownloaderMiddleware(object):
+    # Not all methods need to be defined. If a method is not defined,
+    # scrapy acts as if the downloader middleware does not modify the
+    # passed objects.
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # This method is used by Scrapy to create your spiders.
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        return s
+
+    def process_request(self, request, spider):
+        # Called for each request that goes through the downloader
+        # middleware.
+
+        # Must either:
+        # - return None: continue processing this request
+        # - or return a Response object
+        # - or return a Request object
+        # - or raise IgnoreRequest: process_exception() methods of
+        #   installed downloader middleware will be called
+        return None
+
+    def process_response(self, request, response, spider):
+        # Called with the response returned from the downloader.
+
+        # Must either;
+        # - return a Response object
+        # - return a Request object
+        # - or raise IgnoreRequest
+        return response
+
+    def process_exception(self, request, exception, spider):
+        # Called when a download handler or a process_request()
+        # (from other downloader middleware) raises an exception.
+
+        # Must either:
+        # - return None: continue processing this exception
+        # - return a Response object: stops process_exception() chain
+        # - return a Request object: stops process_exception() chain
+        pass
+
+    def spider_opened(self, spider):
+        spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class HotWeiboCookieMiddleware(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+
+    def __init__(self):
+        client = pymongo.MongoClient(LOCAL_MONGO_HOST, LOCAL_MONGO_PORT)
+        self.account_collection = client[DB_NAME]['account']
+
+    # def process_request(self, request, spider):
+    #     url = request.url
+    #     container_id = cues_util.parse_query(url,'containerid')
+    #
+    #     # 查看container_id使用帐号
+    #     container_account = self.r.hget('cues:crawl:temp:wb_hot_blog', container_id)
+    #     random_account = None
+    #     if container_account:
+    #         account_id = str(container_account.decode('utf-8'))
+    #         random_account = self.account_collection.find({'_id': account_id})[0]
+    #         self.r.hincrby('cues:crawl:temp:wb_hot_blog', container_id+'_times', 1)
+    #
+    #     else:
+    #         all_count = self.account_collection.find({'status': 'success'}).count()
+    #         if all_count == 0:
+    #             raise Exception('当前账号池为空')
+    #         random_index = random.randint(0, all_count - 1)
+    #         random_account = self.account_collection.find({'status': 'success'})[random_index]
+    #         self.r.hset('cues:crawl:temp:wb_hot_blog', container_id, random_account['_id'])
+    #         self.r.hincrby('cues:crawl:temp:wb_hot_blog', container_id+'_times', 1)
+    #
+    #     if random_account:
+    #         cookie = random_account['cookie']
+    #         cookie = cookie + ';MLOGIN=1'
+    #         cookie = cookie + ';WEIBOCN_FROM=1110006030'
+    #         cookie = cookie + ';M_WEIBOCN_PARAMS=luicode%3D10000011%26lfid%3D102803%26uicode%3D10000011%26fid%3D'+container_id
+    #         request.headers.setdefault('Cookie', cookie)
+    #         request.meta['account'] = random_account
+    #         print(request.meta['account']['_id'])
+
+
+class CookieMiddleware(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+    """
+    每次请求都随机从账号池中选择一个账号去访问
+    """
+
+    def __init__(self):
+        client = pymongo.MongoClient(LOCAL_MONGO_HOST, LOCAL_MONGO_PORT)
+        self.account_collection = client[DB_NAME]['account']
+
+    def process_request(self, request, spider):
+        all_count = self.account_collection.find({'status': 'success'}).count()
+        if all_count == 0:
+            raise Exception('当前账号池为空')
+        random_index = random.randint(0, all_count - 1)
+        random_account = self.account_collection.find({'status': 'success'})[random_index]
+        cookie = random_account['cookie']
+        request.headers.setdefault('Cookie', cookie)
+        request.meta['account'] = random_account
+        prefix = datetime.datetime.now().strftime('%Y-%m-%d %H')
+        hour_rate = self.r.hincrby('cues:crawl:statistics:account', random_account['_id'] + "_" + prefix, 1)
+        if hour_rate > 400:
+            raise Exception('当前账号访问频率太高')
+
+
+# class TopicBangCookieMiddleware(object):
+#     def __init__(self):
+#         pass
+#
+#     def process_request(self, request, spider):
+#         url = request.url
+#         container_id = cues_util.parse_query(url,'containerid')
+#         container_id = quote(container_id,'utf-8')
+#         cookie = ''
+#         if 'Cookie' in request.headers:
+#             cookie = request.headers['Cookie'].decode('utf-8')
+#         cookie = cookie + ';WEIBOCN_FROM=1110006030'
+#         params = 'luicode=10000011&lfid=106003type=25&t=3&disable_hot=1&filter_type=topicband&fid='+container_id+'&uicode=10000011'
+#         params = quote(params, 'utf-8')
+#         cookie = cookie + ';M_WEIBOCN_PARAMS='+params
+#         request.headers.setdefault('Cookie', cookie)
+
+
+# class TopicBangUserCookieMiddleware(object):
+#     def __init__(self):
+#         pass
+#
+#     def process_request(self, request, spider):
+#         url = request.url
+#         container_id = cues_util.parse_query(url,'containerid')
+#         container_id = quote(container_id,'utf-8')
+#         lfid = cues_util.parse_query(url,'lfid')
+#         lfid = quote(lfid,'utf-8')
+#         cookie = ''
+#         if 'Cookie' in request.headers:
+#             cookie = request.headers['Cookie'].decode('utf-8')
+#         params = 'luicode=10000011&lfid='+lfid+'&fid='+container_id+'&uicode=10000011'
+#         params = quote(params,'utf-8')
+#         cookie = cookie + ';M_WEIBOCN_PARAMS='+params
+#         request.headers.setdefault('Cookie', cookie)
+
+
+class RedirectMiddleware(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+    """
+    检测账号是否正常
+    302 / 403,说明账号cookie失效/账号被封，状态标记为error
+    418,偶尔产生,需要再次请求
+    """
+
+    def __init__(self):
+        client = pymongo.MongoClient(LOCAL_MONGO_HOST, LOCAL_MONGO_PORT)
+        self.account_collection = client[DB_NAME]['account']
+
+    def process_response(self, request, response, spider):
+        http_code = response.status
+        prefix = datetime.datetime.now().strftime('%Y%m%d')
+        self.r.hincrby('cues:crawl:statistics:http_code:' + prefix, http_code, 1)
+        if http_code == 302 or http_code == 403:
+            if 'account' in request.meta:
+                self.account_collection.find_one_and_update({'_id': request.meta['account']['_id']},{'$set': {'status': 'error'}}, )
+                prefix = datetime.datetime.now().strftime('%Y-%m-%d %H')
+                hour_rate = self.r.hincrby('cues:crawl:statistics:account', request.meta['account']['_id'] + "_" + prefix, 1)
+                self.r.hset('cues:crawl:statistics:account_error', request.meta['account']['_id'], hour_rate)
+                self.r.hset('cues:crawl:statistics:account_error_url', request.meta['account']['_id'], request.url)
+            return request
+        elif http_code == 418:
+            return request
+        elif http_code == 429:
+            return request
+        else:
+            return response
+
+
+class IPPoolMiddleware(object):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+
+    def process_request(self, request, spider):
+        url = self.r.srandmember('taodata:ippool')
+        if url:
+            url = url.decode('utf-8')
+            request.meta["proxy"] = url
+            print('use proxy ip:' + url)
+
+
+class RetryMiddleware(RetryMiddleware):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+
+    def delete_proxy(self, proxy):
+        if proxy:
+            print('ip pool:remove ' + proxy)
+            self.r.srem('taodata:ippool', proxy)
+            self.r.sadd('taodata:ipblacklist', proxy)
+
+    def process_response(self, request, response, spider):
+        if request.meta.get('dont_retry', False):
+            return response
+        if response.status in self.retry_http_codes:
+            reason = 'retry again'
+            # 删除该代理
+            self.delete_proxy(request.meta.get('proxy', False))
+            time.sleep(random.randint(3, 5))
+            print('返回值异常, 进行重试...')
+
+            return self._retry(request, reason, spider) or response
+        return response
+
+    def process_exception(self, request, exception, spider):
+        if isinstance(exception, self.EXCEPTIONS_TO_RETRY) \
+                and not request.meta.get('dont_retry', False):
+            # 删除该代理
+            self.delete_proxy(request.meta.get('proxy', False))
+            time.sleep(random.randint(3, 5))
+            print('连接异常, 进行重试...')
+            return self._retry(request, exception, spider)
+
+
+# 代理服务器
+proxyServer = "http://http-dyn.abuyun.com:9020"
+
+# 代理隧道验证信息
+#proxyUser = "HI1KUC7XVQ0249ZD"
+#proxyPass = "3E0AA3CE27CAB12F"
+
+proxyUser = "H6TG03254F59480D"
+proxyPass = "2DB1A6860BA11408"
+
+# for Python3
+proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
+
+
+class ProxyMiddleware(object):
+    def process_request(self, request, spider):
+        request.meta["proxy"] = proxyServer
+        request.headers["Proxy-Authorization"] = proxyAuth
+        print('use proxy ip:' + proxyServer)
+
+
+class NoProxyMiddleware(object):
+    def process_request(self, request, spider):
+        if 'proxy' in request.meta:
+            request.meta.pop('proxy')
+        if 'Proxy-Authorization' in request.meta:
+            request.meta.pop('Proxy-Authorization')
+        print('clear proxy')
+
+
+

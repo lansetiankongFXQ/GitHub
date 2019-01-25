@@ -1,0 +1,39 @@
+wb_base_profile_cfg = {
+    'id': ['_id', 'id'],
+    'screen_name': ['screen_name'],
+    'profile_image_url': ['profile_image_url'],
+    'profile_url': ['profile_url'],
+    'statuses_count': ['statuses_count'],
+    'verified': ['verified'],
+    'verified_type': ['verified_type'],
+    'verified_reason': ['verified_reason'],
+    'description': ['description'],
+    'gender': ['gender'],
+    'mbtype': ['mbtype'],
+    'urank': ['urank'],
+    'mbrank': ['mbrank'],
+    'followers_count': ['followers_count'],
+    'follow_count': ['follow_count']
+}
+
+wb_base_blog_cfg = {
+    'id': ['id'],
+    'created_at': ['created_at'],
+    'text': ['text'],
+    'source': ['source'],
+    'reposts_count': ['reposts_count'],
+    'comments_count': ['comments_count'],
+    'attitudes_count': ['attitudes_count'],
+}
+
+wb_topic_bang_cfg = {
+    'title_sub': ['title_sub'],
+    'desc1': ['desc1'],
+    'desc2': ['desc2']
+}
+
+wb_hot_word_cfg = {
+    'item_id': ['item_id'],
+    'desc': ['desc'],
+    'desc_extr': ['desc_extr']
+}

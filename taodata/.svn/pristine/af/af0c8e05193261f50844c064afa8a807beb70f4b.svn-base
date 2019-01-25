@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+# encoding: utf-8
+import re
+from scrapy.crawler import CrawlerProcess
+from scrapy.selector import Selector
+from scrapy.http import Request
+from scrapy.utils.project import get_project_settings
+from scrapy_redis.spiders import RedisSpider
+import sys
+import os
+sys.path.append(os.getcwd())
+from taodata.settings import LOCAL_REDIS_HOST, LOCAL_REDIS_PORT, LOCAL_REDIS_PASSWORD
+import redis
+
+from twisted.internet.error import TimeoutError, TCPTimedOutError, ConnectionRefusedError
+from twisted.web._newclient import ResponseFailed, ResponseNeverReceived
+from scrapy.spidermiddlewares.httperror import HttpError
+from scrapy.utils.response import response_status_message  # 获取错误代码信息
+import importlib
+from taodata.spiders.cues import cues_util
+import scrapy.item
+import time
+import json
+import datetime
+import traceback
+
+
+class WbTopicBangUserSpider(RedisSpider):
+    r = redis.Redis(host=LOCAL_REDIS_HOST, port=LOCAL_REDIS_PORT, password=LOCAL_REDIS_PASSWORD)
+    name = "cues:crawl:wb_topic_bang_user"
+    redis_key = "cues:crawl:wb_topic_bang_user:start_urls"
+
+    custom_settings = {
+        'CONCURRENT_REQUESTS': 4,
+        "DOWNLOAD_DELAY": 0.5,
+        'DOWNLOAD_TIMEOUT': 30,
+        "SCHEDULER": "scrapy_redis.scheduler.Scheduler",
+        "DUPEFILTER_CLASS": "scrapy_redis.dupefilter.RFPDupeFilter",
+        "SCHEDULER_PERSIST": True,
+        'DEFAULT_REQUEST_HEADERS': {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+        },
+        'DOWNLOADER_MIDDLEWARES': {
+            'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 300,
+            'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': None,
+            'scrapy.downloadermiddlewares.retry.RetryMiddleware':None,
+            'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+            'taodata.middlewares.RetryMiddleware': 550,
+            'taodata.middlewares.TopicBangUserCookieMiddleware': 301,
+            # 'taodata.middlewares.CookieMiddleware': 300,
+            'taodata.middlewares.RedirectMiddleware': 200,
+            # 'taodata.middlewares.IPPoolMiddleware': 125,
+            'taodata.middlewares.ProxyMiddleware': 125,
+            # 'taodata.middlewares.NoProxyMiddleware': 125,
+        },
+        'ITEM_PIPELINES': {
+            'taodata.spiders.cues.pipelines.CuesMongoDBPipeline': 999
+        },
+        'RETRY_TIMES': 50,
+        'RETRY_ENABLED': True
+    }
+
+    # 默认初始解析函数
+    def parse(self, response):
+        text1 = response.text
+        try:
+            json1 = json.loads(text1)
+            if 'ok' in json1 and json1['ok'] != 1:
+                self.r.sadd('cues:crawl:wb:error', response.url+'-->无数据')
+            else:
+                if 'data' in json1:
+                    if 'cards' in json1['data']:
+                        cards = json1['data']['cards']
+                        for card in cards:
+                            if 'card_group' in card:
+                                card_group = card['card_group']
+                                for group in card_group:
+                                    if 'user' in group:
+                                        user = group['user']
+                                        if self.r.sismember('cues:crawl:dupe:wb_base_profile', user['id']):
+                                            pass
+                                        else:
+                                            url = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s' % user['id']
+                                            self.r.lpush('cues:crawl:wb_base_profile:start_urls', url)
+        except:
+            traceback.print_exc()
+            self.r.sadd('cues:crawl:wb:error', response.url+'-->解析异常')
+
+
+if __name__ == "__main__":
+    process = CrawlerProcess(get_project_settings())
+    process.crawl(WbTopicBangUserSpider)
+    process.start()
